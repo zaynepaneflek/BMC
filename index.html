@@ -3,124 +3,792 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BMC Baseball Facility Aruba</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>BMC Facility | Elite Baseball Training in Aruba</title>
+    <meta
+      name="description"
+      content="BMC Facility is a modern baseball training destination in Aruba focused on elite development, advanced technology, and world-class coaching."
+    />
+    <style>
+      :root {
+        --red: #e63946;
+        --red-dark: #b82333;
+        --black: #111111;
+        --white: #f7f7f7;
+        --muted: #6f6f6f;
+        --border: #ececec;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+        color: var(--white);
+        line-height: 1.6;
+        min-height: 100vh;
+        background: #121212;
+      }
+
+      main,
+      header,
+      section {
+        position: relative;
+        z-index: 1;
+      }
+
+      .page-background {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        background: url("Images/photo-1475440197469-e367ec8eeb19.avif") center/cover no-repeat;
+        opacity: 0.94;
+        filter: saturate(1.05);
+      }
+
+      .background-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        background: radial-gradient(circle at top, rgba(17, 17, 17, 0.12), rgba(17, 17, 17, 0.42) 55%, rgba(17, 17, 17, 0.62) 100%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .container {
+        width: min(1160px, calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        background: rgba(17, 17, 17, 0.8);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 0;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        font-size: 0.95rem;
+        color: white;
+      }
+
+      .brand-mark {
+        width: 44px;
+        height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #ffffff, #f0dada);
+        padding: 2px;
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        overflow: hidden;
+      }
+
+      .brand-mark img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      .brand-mark .brand-fallback {
+        display: none;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        color: var(--red);
+      }
+
+      .brand-mark.fallback .brand-fallback {
+        display: inline-flex;
+      }
+
+      .brand-mark.fallback img {
+        display: none;
+      }
+
+      .brand img {
+        width: 42px;
+        height: 42px;
+        display: block;
+        object-fit: contain;
+        border-radius: 50%;
+      }
+
+      .brand-text {
+        font-size: 0.95rem;
+        letter-spacing: 0.12em;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.2rem;
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .nav-links a:hover {
+        color: white;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        align-items: center;
+        gap: 2.3rem;
+        padding: 5.2rem 0 4rem;
+        min-height: 86vh;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.6rem, 4.8vw, 4.5rem);
+        line-height: 0.95;
+        margin: 0.3rem 0 1rem;
+        letter-spacing: -0.03em;
+        color: white;
+      }
+
+      .hero p {
+        font-size: 1.08rem;
+        color: rgba(255, 255, 255, 0.86);
+        max-width: 620px;
+        margin-bottom: 1.6rem;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 0.8rem;
+        border-radius: 999px;
+        background: var(--black);
+        color: white;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.85rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.95rem 1.4rem;
+        border-radius: 999px;
+        font-weight: 700;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-primary {
+        background: var(--red);
+        color: white;
+        box-shadow: 0 14px 38px rgba(230, 57, 70, 0.24);
+      }
+
+      .btn-primary:hover {
+        background: var(--red-dark);
+      }
+
+      .btn-secondary {
+        border: 1px solid var(--border);
+        background: white;
+        color: var(--black);
+      }
+
+      .hero-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 1.7rem;
+      }
+
+      .hero-stats div {
+        padding: 0.9rem 1rem;
+        min-width: 140px;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: white;
+        color: var(--black);
+      }
+
+      .hero-stats strong {
+        display: block;
+        font-size: 1.1rem;
+      }
+
+      .hero-card {
+        position: relative;
+        padding: 0.8rem;
+        border-radius: 32px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.22);
+        backdrop-filter: blur(10px);
+      }
+
+      .hero-card img {
+        width: 100%;
+        height: 560px;
+        object-fit: cover;
+        border-radius: 24px;
+      }
+
+      section {
+        padding: 4.5rem 0;
+        color: white;
+      }
+
+      .section-heading {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1.8rem;
+      }
+
+      .section-heading h2 {
+        font-size: 1.75rem;
+        margin: 0;
+        color: white;
+      }
+
+      .section-heading p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .grid {
+        display: grid;
+        gap: 1.2rem;
+      }
+
+      .program-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.97);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 24px;
+        padding: 1.4rem;
+        box-shadow: 0 12px 40px rgba(17, 17, 17, 0.12);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        backdrop-filter: blur(12px);
+        color: var(--black);
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 48px rgba(17, 17, 17, 0.08);
+      }
+
+      .card-icon {
+        width: 44px;
+        height: 44px;
+        display: grid;
+        place-items: center;
+        border-radius: 14px;
+        background: rgba(230, 57, 70, 0.1);
+        color: var(--red);
+        font-weight: 800;
+        margin-bottom: 0.9rem;
+      }
+
+      .card h3 {
+        margin: 0 0 0.5rem;
+        font-size: 1.1rem;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .coach-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .coach-card img {
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
+        border-radius: 20px;
+        margin-bottom: 1rem;
+      }
+
+      .coach-card .role {
+        color: var(--red);
+        font-weight: 700;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .tech-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .tech-card {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+
+      .tech-card .dot {
+        width: 12px;
+        height: 12px;
+        margin-top: 0.55rem;
+        background: var(--red);
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      .pricing-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .pricing-card {
+        position: relative;
+      }
+
+      .pricing-card.featured {
+        border-color: var(--red);
+        box-shadow: 0 22px 50px rgba(230, 57, 70, 0.16);
+      }
+
+      .price {
+        font-size: 2rem;
+        font-weight: 800;
+        margin: 0.5rem 0 0.2rem;
+      }
+
+      .pricing-card ul {
+        padding-left: 1rem;
+        color: var(--muted);
+      }
+
+      .pill {
+        display: inline-block;
+        padding: 0.3rem 0.6rem;
+        border-radius: 999px;
+        background: rgba(230, 57, 70, 0.1);
+        color: var(--red);
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .testimonial-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .testimonial {
+        background: linear-gradient(135deg, #111111 0%, #232323 100%);
+        color: white;
+        border-radius: 24px;
+      }
+
+      .testimonial p {
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .contact-wrap {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 1.2rem;
+      }
+
+      .contact-card,
+      .form-card {
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        border-radius: 24px;
+        padding: 1.4rem;
+        backdrop-filter: blur(12px);
+        color: var(--black);
+      }
+
+      .contact-list {
+        display: grid;
+        gap: 0.8rem;
+        margin-top: 1rem;
+      }
+
+      .contact-list div {
+        padding: 0.85rem 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      form {
+        display: grid;
+        gap: 0.9rem;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 0.9rem 1rem;
+        font: inherit;
+        background: #fcfcfc;
+      }
+
+      textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      footer {
+        padding: 1.4rem 0 2rem;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 0.95rem;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 900px) {
+        .hero,
+        .contact-wrap {
+          grid-template-columns: 1fr;
+        }
+
+        .program-grid,
+        .coach-grid,
+        .pricing-grid,
+        .testimonial-grid,
+        .tech-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .nav-links {
+          display: none;
+        }
+
+        .hero {
+          padding-top: 2.4rem;
+        }
+
+        .hero-card img {
+          height: 360px;
+        }
+
+        .section-heading {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
   </head>
   <body>
+    <div class="page-background"></div>
+    <div class="background-overlay"></div>
     <header>
-      <div class="brand">
-        <img src="Images/bmc%20logo.PNG" alt="BMC Baseball Facility logo" />
-        <nav class="main-nav">
-          <a href="index.html">Home</a>
-          <a href="cage-rentals.html">Cage rentals</a>
-          <a href="lessons.html">Lessons</a>
-          <a href="memberships.html">Memberships</a>
-          <a href="coach-bios.html">Coach bios</a>
-          <a href="photos.html">Photos</a>
+      <div class="container">
+        <nav>
+          <a class="brand" href="#top">
+            <span class="brand-mark">
+              <img src="Images/bmc logo.PNG" alt="BMC Facility logo" onerror="this.style.display='none'; this.parentElement.classList.add('fallback');" />
+              <span class="brand-fallback">BMC</span>
+            </span>
+            <span class="brand-text">BMC Facility</span>
+          </a>
+          <div class="nav-links">
+            <a href="#programs">Programs</a>
+            <a href="#coaches">Coaches</a>
+            <a href="#technology">Technology</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact">Contact</a>
+          </div>
         </nav>
-        <a class="button nav-cta whatsapp" href="https://wa.me/2971234567" target="_blank" rel="noopener">Book via WhatsApp</a>
-      </div>
-      <div class="hero">
-        <p class="hero-tagline">BMC Baseball Facility</p>
-        <h1>Train hard. Play smart. Shine in Aruba.</h1>
-        <p>World-class baseball training, modern hitting cages, and bright community energy at Aruba's premiere baseball facility.</p>
-        <div class="button-group">
-          <a class="button whatsapp" href="https://wa.me/2971234567" target="_blank" rel="noopener">Book via WhatsApp</a>
-          <a class="button secondary" href="memberships.html">View memberships</a>
-        </div>
       </div>
     </header>
 
-    <main>
-      <section class="section location">
-        <h2>Located in Oranjestad, Aruba</h2>
-        <p>Conveniently located for locals and visitors alike, BMC Baseball Facility is the home for training, summer camps, private lessons, and team development in Aruba.</p>
-      </section>
-
-      <section class="section field-visual">
-        <div class="field-copy">
-          <h2>Train in Aruba’s field-inspired environment</h2>
-          <p>Feel the baseball field energy with our Aruba-inspired turf visuals, expert coaching, and a modern training atmosphere.</p>
+    <main id="top">
+      <section class="container hero reveal">
+        <div>
+          <div class="eyebrow">Aruba • Baseball Performance Center</div>
+          <h1>Train Like a Pro</h1>
+          <p>
+            Elite baseball development built for athletes who want sharper swings,
+            stronger mechanics, and real-game confidence in a premium facility setting.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Book a Session</a>
+            <a class="btn btn-secondary" href="#programs">Explore Programs</a>
+          </div>
+          <div class="hero-stats">
+            <div><strong>1:1</strong> Player Insight</div>
+            <div><strong>5★</strong> Coaching Experience</div>
+            <div><strong>24/7</strong> Facility Access</div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <img src="Images/2eb074f189c1685181d048960d204b64.jpg" alt="Player training at BMC Facility" />
         </div>
       </section>
 
-      <section class="section" id="features">
-        <h2>Facility highlights</h2>
-        <div class="feature-list">
-          <div class="feature">
-            <h3>Indoor batting cages</h3>
-            <p>Year-round practice space with pitching machines, video swing analysis, and professional coaching support.</p>
+      <section id="programs" class="container reveal">
+        <div class="section-heading">
+          <div>
+            <div class="pill">Programs</div>
+            <h2>Designed for every stage of the athlete journey.</h2>
           </div>
-          <div class="feature">
-            <h3>Strength & conditioning</h3>
-            <p>Custom programs designed to improve speed, power, agility, and baseball-specific conditioning.</p>
-          </div>
-          <div class="feature">
-            <h3>Team training</h3>
-            <p>Group sessions for youth teams, school programs, and travel squads looking to elevate their game.</p>
-          </div>
+          <p>From first steps to next-level performance, every session is built to sharpen your game.</p>
         </div>
-      </section>
-
-      <section class="section service-links">
-        <h2>Explore our pages</h2>
-        <div class="cards">
-          <a class="card page-card" href="cage-rentals.html">
-            <h3>Cage rentals</h3>
-            <p>Reserve batting cage time for solo practice or team sessions.</p>
-          </a>
-          <a class="card page-card" href="lessons.html">
-            <h3>Lessons</h3>
-            <p>Book private and semi-private baseball instruction.</p>
-          </a>
-          <a class="card page-card" href="memberships.html">
-            <h3>Memberships</h3>
-            <p>Unlock benefits, priority booking, and training discounts.</p>
-          </a>
-          <a class="card page-card" href="coach-bios.html">
-            <h3>Coach bios</h3>
-            <p>Meet the BMC coaches and their specialized expertise.</p>
-          </a>
-          <a class="card page-card" href="photos.html">
-            <h3>Photos</h3>
-            <p>See the facility and Aruba baseball training environment.</p>
-          </a>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2>Why choose BMC?</h2>
-        <div class="cards">
+        <div class="grid program-grid">
           <article class="card">
-            <h3>Expert coaches</h3>
-            <p>Dedicated trainers who know baseball fundamentals, mental prep, and performance development.</p>
+            <div class="card-icon">01</div>
+            <h3>Velocity Lab</h3>
+            <p>Speed, arm strength, and explosive movement training for pitchers and position players.</p>
           </article>
           <article class="card">
-            <h3>Caribbean atmosphere</h3>
-            <p>Train with island energy, fresh ocean breezes, and a fun outdoor lifestyle to keep you motivated.</p>
+            <div class="card-icon">02</div>
+            <h3>Hitting Intensive</h3>
+            <p>Mechanics, timing, and bat speed development with high-rep, high-quality practice.</p>
           </article>
           <article class="card">
-            <h3>Flexible booking</h3>
-            <p>Easy scheduling for individual sessions, camps, and group clinics—perfect for locals and vacationers.</p>
+            <div class="card-icon">03</div>
+            <h3>Game IQ</h3>
+            <p>Decision-making, field awareness, and situational training to thrive under pressure.</p>
           </article>
         </div>
       </section>
 
-      <section class="section" id="contact">
-        <h2>Get in touch</h2>
-        <p>Reserve your training session today or ask about our upcoming baseball camps and events.</p>
-        <div class="card">
-          <h3>Contact details</h3>
-          <p>Email: info@bmcbaseballaruba.com</p>
-          <p>WhatsApp: <a href="https://wa.me/2971234567" target="_blank" rel="noopener">+297 123 4567</a></p>
-          <p>Address: Piedra Plat 48c, Santa Cruz, Aruba</p>
+      <section id="coaches" class="container reveal">
+        <div class="section-heading">
+          <div>
+            <div class="pill">Coaches</div>
+            <h2>Expert mentors with elite-level perspective.</h2>
+          </div>
+          <p>Our team brings together player development, performance science, and direct baseball experience.</p>
+        </div>
+        <div class="grid coach-grid">
+          <article class="card coach-card">
+            <img src="Images/images.jpg" alt="Coach working with a training player" />
+            <div class="role">Head Coach</div>
+            <h3>Conrad Orman</h3>
+            <p>Former collegiate pitching leader focused on arm health, tempo, and command.</p>
+          </article>
+          <article class="card coach-card">
+            <img src="Images/2eb074f189c1685181d048960d204b64.jpg" alt="Strength and mechanics session" />
+            <div class="role">Performance Director</div>
+            <h3>Jamal Ortiz</h3>
+            <p>Specializes in movement efficiency, speed development, and rotational power.</p>
+          </article>
+          <article class="card coach-card">
+            <img src="Images/bmc logo.PNG" alt="BMC Facility branding" />
+            <div class="role">Player Development</div>
+            <h3>Riley Brooks</h3>
+            <p>Supports hitters with a calm, technical approach to timing, balance, and intent.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="technology" class="container reveal">
+        <div class="section-heading">
+          <div>
+            <div class="pill">Technology</div>
+            <h2>Modern tools that make progress visible.</h2>
+          </div>
+          <p>Every training block is informed by data, video, and measurable feedback.</p>
+        </div>
+        <div class="grid tech-grid">
+          <article class="card tech-card">
+            <span class="dot"></span>
+            <div>
+              <h3>TrackMan & Blast Metrics</h3>
+              <p>Collect real data on exit velocity, spin, launch angle, and throwing efficiency.</p>
+            </div>
+          </article>
+          <article class="card tech-card">
+            <span class="dot"></span>
+            <div>
+              <h3>Video Review Sessions</h3>
+              <p>Slow-motion breakdowns help players understand their timing, rhythm, and form.</p>
+            </div>
+          </article>
+          <article class="card tech-card">
+            <span class="dot"></span>
+            <div>
+              <h3>Performance Programming</h3>
+              <p>Tailored plans that connect strength, mobility, recovery, and baseball development.</p>
+            </div>
+          </article>
+          <article class="card tech-card">
+            <span class="dot"></span>
+            <div>
+              <h3>High-Quality Training Environment</h3>
+              <p>Clean, professional spaces designed for repetition, intent, and daily improvement.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="pricing" class="container reveal">
+        <div class="section-heading">
+          <div>
+            <div class="pill">Pricing</div>
+            <h2>Flexible plans for serious development.</h2>
+          </div>
+          <p>Choose the level of support that fits your goals and schedule.</p>
+        </div>
+        <div class="grid pricing-grid">
+          <article class="card pricing-card">
+            <h3>Starter</h3>
+            <p class="price">$95</p>
+            <p>per session</p>
+            <ul>
+              <li>Single private session</li>
+              <li>Mechanics review</li>
+              <li>Basic development plan</li>
+            </ul>
+          </article>
+          <article class="card pricing-card featured">
+            <h3>Performance</h3>
+            <p class="price">$240</p>
+            <p>per month</p>
+            <ul>
+              <li>2 weekly sessions</li>
+              <li>Video breakdowns</li>
+              <li>Progress tracking</li>
+            </ul>
+          </article>
+          <article class="card pricing-card">
+            <h3>Elite</h3>
+            <p class="price">$650</p>
+            <p>per month</p>
+            <ul>
+              <li>Unlimited training access</li>
+              <li>Advanced metrics review</li>
+              <li>Priority scheduling</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="testimonials" class="container reveal">
+        <div class="section-heading">
+          <div>
+            <div class="pill">Testimonials</div>
+            <h2>Players trust the process and feel the difference.</h2>
+          </div>
+          <p>Our athletes come for the training and stay for the results.</p>
+        </div>
+        <div class="grid testimonial-grid">
+          <article class="card testimonial">
+            <p>“The level of detail was incredible. My timing, confidence, and consistency all improved within weeks.”</p>
+            <strong>— Diego M., Catcher</strong>
+          </article>
+          <article class="card testimonial">
+            <p>“This facility feels like a true performance environment. Every session had purpose and direction.”</p>
+            <strong>— Luis R., Pitcher</strong>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="container reveal">
+        <div class="section-heading">
+          <div>
+            <div class="pill">Contact</div>
+            <h2>Let’s build your next level together.</h2>
+          </div>
+          <p>Reserve a session or ask about training options for your athlete.</p>
+        </div>
+        <div class="contact-wrap">
+          <div class="contact-card">
+            <h3>Visit the facility</h3>
+            <div class="contact-list">
+              <div><strong>Location:</strong> Aruba, Caribbean</div>
+              <div><strong>Email:</strong> info@bmcfacility.com</div>
+              <div><strong>Phone:</strong> +297 000 0000</div>
+              <div><strong>Social:</strong> <a href="#" style="color: var(--red);">@bmcfacility</a></div>
+            </div>
+          </div>
+          <div class="form-card">
+            <form>
+              <input type="text" placeholder="Name" />
+              <input type="email" placeholder="Email" />
+              <input type="text" placeholder="Player Position" />
+              <textarea placeholder="Tell us about your goals"></textarea>
+              <a class="btn btn-primary" href="#top">Request Information</a>
+            </form>
+          </div>
         </div>
       </section>
     </main>
 
     <footer>
-      <p>© <span id="current-year">2026</span> BMC Baseball Facility Aruba</p>
+      <div class="container" style="display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+        <span>© 2026 BMC Facility. Built for serious baseball growth.</span>
+        <span>Aruba • Performance • Precision • Purpose</span>
+      </div>
     </footer>
-    <script src="script.js"></script>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      document.querySelectorAll(".reveal").forEach((section) => observer.observe(section));
+    </script>
   </body>
 </html>

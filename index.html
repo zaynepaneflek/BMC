@@ -46,7 +46,7 @@
         position: fixed;
         inset: 0;
         z-index: -1;
-        background: url("Images/photo-1475440197469-e367ec8eeb19.avif") center/cover no-repeat;
+        background: url("Images/Field 3.avif") center/cover no-repeat;
         opacity: 0.94;
         filter: saturate(1.05);
       }
@@ -100,16 +100,19 @@
         color: white;
       }
 
+      .brand:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.22);
+        transform: translateY(-1px);
+      }
+
       .brand-mark {
-        width: 44px;
-        height: 44px;
+        width: 42px;
+        height: 42px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         border-radius: 50%;
-        background: linear-gradient(135deg, #ffffff, #f0dada);
-        padding: 2px;
-        border: 1px solid rgba(255, 255, 255, 0.24);
         overflow: hidden;
       }
 
@@ -373,6 +376,43 @@
         align-items: flex-start;
       }
 
+      .athlete-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .athlete-card {
+        background: rgba(255, 255, 255, 0.96);
+        color: var(--black);
+        padding: 1.2rem;
+        border-radius: 22px;
+        border: 1px solid rgba(17, 17, 17, 0.08);
+        box-shadow: 0 12px 34px rgba(17, 17, 17, 0.12);
+      }
+
+      .athlete-card .athlete-badge {
+        display: inline-block;
+        margin-bottom: 0.7rem;
+        padding: 0.3rem 0.6rem;
+        border-radius: 999px;
+        background: rgba(230, 57, 70, 0.1);
+        color: var(--red);
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .athlete-card h3 {
+        margin: 0 0 0.35rem;
+        font-size: 1.05rem;
+      }
+
+      .athlete-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
       .tech-card .dot {
         width: 12px;
         height: 12px;
@@ -539,15 +579,13 @@
         <nav>
           <a class="brand" href="#top">
             <span class="brand-mark">
-              <img src="Images/bmc logo.PNG" alt="BMC Facility logo" onerror="this.style.display='none'; this.parentElement.classList.add('fallback');" />
+              <img src="Images/bmclogo2.jpg" alt="BMC Facility logo" onerror="this.style.display='none'; this.parentElement.classList.add('fallback');" />
               <span class="brand-fallback">BMC</span>
             </span>
             <span class="brand-text">BMC Facility</span>
           </a>
           <div class="nav-links">
-            <a href="#programs">Programs</a>
             <a href="#coaches">Coaches</a>
-            <a href="#technology">Technology</a>
             <a href="#pricing">Pricing</a>
             <a href="#contact">Contact</a>
           </div>
@@ -566,7 +604,6 @@
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contact">Book a Session</a>
-            <a class="btn btn-secondary" href="#programs">Explore Programs</a>
           </div>
           <div class="hero-stats">
             <div><strong>1:1</strong> Player Insight</div>
@@ -575,34 +612,7 @@
           </div>
         </div>
         <div class="hero-card">
-          <img src="Images/2eb074f189c1685181d048960d204b64.jpg" alt="Player training at BMC Facility" />
-        </div>
-      </section>
-
-      <section id="programs" class="container reveal">
-        <div class="section-heading">
-          <div>
-            <div class="pill">Programs</div>
-            <h2>Designed for every stage of the athlete journey.</h2>
-          </div>
-          <p>From first steps to next-level performance, every session is built to sharpen your game.</p>
-        </div>
-        <div class="grid program-grid">
-          <article class="card">
-            <div class="card-icon">01</div>
-            <h3>Velocity Lab</h3>
-            <p>Speed, arm strength, and explosive movement training for pitchers and position players.</p>
-          </article>
-          <article class="card">
-            <div class="card-icon">02</div>
-            <h3>Hitting Intensive</h3>
-            <p>Mechanics, timing, and bat speed development with high-rep, high-quality practice.</p>
-          </article>
-          <article class="card">
-            <div class="card-icon">03</div>
-            <h3>Game IQ</h3>
-            <p>Decision-making, field awareness, and situational training to thrive under pressure.</p>
-          </article>
+          <img src="Images/Bmc Facility 1 bk.png" alt="Player training at BMC Facility" />
         </div>
       </section>
 
@@ -616,62 +626,54 @@
         </div>
         <div class="grid coach-grid">
           <article class="card coach-card">
-            <img src="Images/images.jpg" alt="Coach working with a training player" />
+            <img src="Images/Conrad-Orman.jpg" alt="Conrad Orman, Head Coach" />
             <div class="role">Head Coach</div>
-            <h3>Conrad Orman</h3>
-            <p>Former collegiate pitching leader focused on arm health, tempo, and command.</p>
+            <h3>Coach Conrad Orman</h3>
+            <p>Former professional pitching leader focused on arm health, tempo, and command.</p>
           </article>
           <article class="card coach-card">
-            <img src="Images/2eb074f189c1685181d048960d204b64.jpg" alt="Strength and mechanics session" />
+            <img src="Images/CoachBrain.jpg" alt="Strength and mechanics session" />
             <div class="role">Performance Director</div>
-            <h3>Jamal Ortiz</h3>
+            <h3>Coach Brain Larmonie</h3>
             <p>Specializes in movement efficiency, speed development, and rotational power.</p>
           </article>
           <article class="card coach-card">
-            <img src="Images/bmc logo.PNG" alt="BMC Facility branding" />
+            <img src="Images/bmclogo2.jpg" alt="BMC Facility branding" />
             <div class="role">Player Development</div>
-            <h3>Riley Brooks</h3>
+            <h3>Coach den Boef</h3>
             <p>Supports hitters with a calm, technical approach to timing, balance, and intent.</p>
           </article>
         </div>
       </section>
 
-      <section id="technology" class="container reveal">
+      <section id="athletes" class="container reveal">
         <div class="section-heading">
           <div>
-            <div class="pill">Technology</div>
-            <h2>Modern tools that make progress visible.</h2>
+            <div class="pill">Athletes</div>
+            <h2>Trusted by players reaching pro and college levels.</h2>
           </div>
-          <p>Every training block is informed by data, video, and measurable feedback.</p>
+          <p>From current training clients to alumni, this program has helped athletes grow at every stage.</p>
         </div>
-        <div class="grid tech-grid">
-          <article class="card tech-card">
-            <span class="dot"></span>
-            <div>
-              <h3>TrackMan & Blast Metrics</h3>
-              <p>Collect real data on exit velocity, spin, launch angle, and throwing efficiency.</p>
-            </div>
+        <div class="grid athlete-grid">
+          <article class="athlete-card">
+            <span class="athlete-badge">Pro</span>
+            <h3>Diego M.</h3>
+            <p>Former training athlete now competing at a professional level.</p>
           </article>
-          <article class="card tech-card">
-            <span class="dot"></span>
-            <div>
-              <h3>Video Review Sessions</h3>
-              <p>Slow-motion breakdowns help players understand their timing, rhythm, and form.</p>
-            </div>
+          <article class="athlete-card">
+            <span class="athlete-badge">College</span>
+            <h3>Jalen R.</h3>
+            <p>College commit focused on strength, bat speed, and game readiness.</p>
           </article>
-          <article class="card tech-card">
-            <span class="dot"></span>
-            <div>
-              <h3>Performance Programming</h3>
-              <p>Tailored plans that connect strength, mobility, recovery, and baseball development.</p>
-            </div>
+          <article class="athlete-card">
+            <span class="athlete-badge">Current</span>
+            <h3>Marcus T.</h3>
+            <p>Active player sharpening mechanics and performance in weekly sessions.</p>
           </article>
-          <article class="card tech-card">
-            <span class="dot"></span>
-            <div>
-              <h3>High-Quality Training Environment</h3>
-              <p>Clean, professional spaces designed for repetition, intent, and daily improvement.</p>
-            </div>
+          <article class="athlete-card">
+            <span class="athlete-badge">Alumni</span>
+            <h3>Elian C.</h3>
+            <p>Former athlete now thriving in a collegiate program with strong fundamentals.</p>
           </article>
         </div>
       </section>

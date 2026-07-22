@@ -51,7 +51,30 @@
           </div>
         </div>
         <div class="hero-card">
-          <img src="Images/Bmc Facility 1 bk.png" alt="Player training at BMC Facility" />
+          <div class="carousel">
+            <div class="carousel-container">
+              <div class="carousel-slide fade">
+                <img src="Images/Bmc Facility 1 bk.png" alt="BMC Facility training" />
+              </div>
+              <div class="carousel-slide fade">
+                <img src="Images/Field 1.jpg" alt="BMC Field 1" />
+              </div>
+              <div class="carousel-slide fade">
+                <img src="Images/FIeld 2.jpg" alt="BMC Field 2" />
+              </div>
+              <div class="carousel-slide fade">
+                <img src="Images/Field 3.avif" alt="BMC Field 3" />
+              </div>
+            </div>
+            <button class="carousel-btn prev" onclick="changeSlide(-1)">❮</button>
+            <button class="carousel-btn next" onclick="changeSlide(1)">❯</button>
+            <div class="carousel-dots">
+              <span class="dot" onclick="currentSlide(1)"></span>
+              <span class="dot" onclick="currentSlide(2)"></span>
+              <span class="dot" onclick="currentSlide(3)"></span>
+              <span class="dot" onclick="currentSlide(4)"></span>
+            </div>
+          </div>
         </div>
       </section>
 

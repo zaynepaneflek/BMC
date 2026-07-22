@@ -211,13 +211,23 @@ nav {
 }
 
 .btn-primary {
-  background: var(--red);
+  background: #22c55e;
   color: white;
-  box-shadow: 0 14px 38px rgba(230, 57, 70, 0.24);
+  box-shadow: 0 14px 38px rgba(34, 197, 94, 0.24);
 }
 
 .btn-primary:hover {
-  background: var(--red-dark);
+  background: #16a34a;
+}
+
+.whatsapp-btn {
+  gap: 0.6rem;
+}
+
+.whatsapp-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
 }
 
 .btn-secondary {
@@ -571,13 +581,23 @@ section {
 }
 
 .contact-card,
-.form-card {
+.map-card {
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.9);
   border-radius: 24px;
   padding: 1.4rem;
   backdrop-filter: blur(12px);
   color: var(--black);
+  overflow: hidden;
+}
+
+.map-card {
+  padding: 0;
+  min-height: 400px;
+}
+
+.map-card iframe {
+  border-radius: 24px;
 }
 
 .contact-list {
@@ -591,24 +611,14 @@ section {
   border-bottom: 1px solid var(--border);
 }
 
-form {
-  display: grid;
-  gap: 0.9rem;
+.contact-list a {
+  color: var(--red);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
 }
 
-input,
-textarea {
-  width: 100%;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 0.9rem 1rem;
-  font: inherit;
-  background: #fcfcfc;
-}
-
-textarea {
-  min-height: 120px;
-  resize: vertical;
+.contact-list a:hover {
+  opacity: 0.8;
 }
 
 footer {

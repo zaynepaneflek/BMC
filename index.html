@@ -15,22 +15,25 @@
     <div class="background-overlay"></div>
     <header>
       <div class="container">
-        <nav>
-          <a class="brand" href="#top">
-            <span class="brand-mark">
-              <img src="Images/bmclogo2.jpg" alt="BMC Facility logo" onerror="this.style.display='none'; this.parentElement.classList.add('fallback');" />
-              <span class="brand-fallback">BMC</span>
-            </span>
-            <span class="brand-text">BMC Facility</span>
-          </a>
-          <div class="nav-links">
-            <a href="#coaches">Coaches</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#contact">Contact</a>
-          </div>
-        </nav>
-      </div>
-    </header>
+          <nav aria-label="Main navigation">
+            <a class="brand" href="#top">
+              <span class="brand-mark">
+                <img src="Images/bmclogo2.jpg" alt="BMC Facility logo" onerror="this.style.display='none'; this.parentElement.classList.add('fallback');" />
+                <span class="brand-fallback">BMC</span>
+              </span>
+              <span class="brand-text">BMC Facility</span>
+            </a>
+            <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation">
+              Menu
+            </button>
+            <div class="nav-links" id="site-nav">
+              <a href="#coaches">Coaches</a>
+              <a href="#pricing">Pricing</a>
+              <a href="#contact">Contact</a>
+            </div>
+          </nav>
+        </div>
+      </header>
 
     <main id="top">
       <section class="container hero reveal">
@@ -219,7 +222,7 @@
             <div class="contact-list">
               <div><strong>Location:</strong> Piedra Plat 48c, Santa Cruz, Aruba</div>
               <div><strong>Phone:</strong> <a href="tel:+297748508034">+297 748 5034</a></div>
-              <div><strong>Social:</strong> <a href="#" style="color: var(--red);">@bmcfacility</a></div>
+              <div><strong>Social:</strong> <a href="https://instagram.com/bmcfacility" target="_blank" rel="noopener noreferrer" style="color: var(--red);">@bmcfacility</a></div>
             </div>
           </div>
           <div class="map-card">

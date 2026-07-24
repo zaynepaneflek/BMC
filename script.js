@@ -20,6 +20,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  const navToggle = document.querySelector(".mobile-nav-toggle");
+  const navLinks = document.getElementById("site-nav");
+
+  if (navToggle && navLinks) {
+    navToggle.addEventListener("click", () => {
+      const expanded = navToggle.getAttribute("aria-expanded") === "true";
+      navToggle.setAttribute("aria-expanded", String(!expanded));
+      navLinks.classList.toggle("show");
+    });
+  }
+
   // Carousel initialization
   let currentSlideIndex = 1;
   let carouselInterval;
